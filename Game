@@ -69,6 +69,9 @@ class Scene
      puts "You can't just sit like this can you?"
      puts "The headmaster will be here any second. Now is your chance to run!"
      puts "The door out is unlocked, and the window is open."
+     puts "Do you"
+     puts "Leave the room"
+     puts "Jump out window"
      print "> "
      
      action = $stdin.gets.chomp
@@ -119,6 +122,9 @@ class Scene
              puts "Just then, you see two teachers approaching the person's direction"
              puts "You can't get caught now, but you can't let that guy get away!"
              puts "There's a shed near you and some bushes leading to the suspect."
+             puts "Should you"
+             puts "Hide in shed"
+             puts "Hide in bushes"
              print "> "
              
              action = $stdin.gets.chomp
@@ -141,7 +147,7 @@ class Scene
          puts "continue observing the shady guy"
          puts "You follow him, using each bush as cover"
          puts "Your chase leads you to a side enterance in the school."
-         return 'finished'
+         return 'doors'
          
      else 
          puts "Hurry up! They're getting closer!"
@@ -150,6 +156,452 @@ class Scene
    end
  end     
  
+ class Doors < Scene
+     def enter()
+         puts "You approach the double doors on the side of the school"
+         puts "as if waiting for a monster to come out"
+         puts "These doors are only meant to be used"
+         puts "by janitors and the like."
+         puts "You'd be breaking the rules, but you have to go inside."
+         puts "Do you decide to"
+         puts "Go in"
+         puts "or"
+         puts "Look for another way in"
+         print "> "
+         
+         action = $stdin.gets.chomp
+         
+         if action == "Go in" 
+             puts "The doors call out to you."
+             puts "They beckon you to come in."
+             puts "The temptation overwhelms you, and you give in"
+             puts "to the doors' call"
+             puts "The doors lead you to a long corridor with multiple doors on each side"
+             return 'hallway1'
+             
+             elsif action == "Look for another way in"
+             puts "You decide to not risk getting into more toruble."
+             puts "Your search for a new enterance leads you to"
+             puts "open window to the left of the doors."
+             return 'lockedroom'
+             
+         else 
+             puts "Hurry up!"
+             return 'Doors'
+         end
+     end
+ end
+ 
+ 
+ class Hallway1 < Scene 
+     def enter()
+         puts "There are two doors to the left and three doors to the right"
+         puts "A door straight shead leads to the cafeteria, but that's a stupid move."
+         puts "Will you go to"
+         puts "Left door 1"
+         puts "Left door 2"
+         puts "Right door 1"
+         puts "Right door 2"
+         puts "Right door 3"
+         print "> "
+         
+         action = $stdin.gets.chomp
+         
+         if action == "Left door 1"
+             puts "You struggle to open the door"
+             puts "Unless you have a muscle disease,"
+             puts "it's safe to say the door is locked"
+             return 'hallway1'
+             
+             elsif action == "Left door 2"
+             puts "You catiously open the door and see"
+             puts "Alfanso is working on an art piece."
+             return 'alfanso'
+             
+             elsif action == "Right door 1"
+             puts "You walk into a history class discussing"
+             puts "The Bill of RIghts."
+             puts "The teacher asks you what you are doing"
+             puts "to which you simply reply"
+             puts "'I plead the fifth"
+             return 'gameover'
+             
+             elsif action == "Right door 2"
+             puts "You stumble into the jaitors office."
+             puts "The stench almost makes you hurl."
+             puts "Somehow, between the tears in your eyes, you"
+             puts "see a green phone case hidden in between cleaning"
+             puts "products and bleach."
+             puts "Mmmmm... bleach"
+             puts "You recongnize this case thanks to a mark"
+             puts "on its back"
+             puts "There's only one place this guy could be hanging around"
+             return 'alac'
+             
+             elsif action == "Right door 3"
+             puts "You go through the door hoping to encounter"
+             puts "a new clue."
+             puts "Strangely, you end up back in the same hallway."
+             puts "You feel like you've seen this happen in a"
+             puts "T.V show before...."
+             return 'hallway1'
+             
+         else
+             puts "Which door to choose...."
+             return 'hallway1'
+         end
+     end
+ end
+            
+    class Lockedroom < Scene
+        def enter()
+            puts "You stumble in and are shocked at what you find"
+            puts "The forbidden chamber students can never access."
+            puts "The place where dreams go to die...."
+            puts "The teacher's lounge"
+            puts "You look around the room at the"
+            puts "Desk"
+            puts "Trash"
+            puts "Cabinet"
+            print "> "
+            
+            action = $stdin.gets.chomp
+            
+            if action == "Trash"
+                puts "You look into the trash hoping to"
+                puts "find a piece of evidence, but"
+                puts "the only peice of trash you find is"
+                puts "yourself."
+                return 'lockedroom'
+                
+                elsif action == "Desk"
+                puts "The desk was cluttered with the"
+                puts "harsh grades and broken dreams."
+                puts "Coffee was there too along with a"
+                puts "a strange document with the headmaster's name"
+                puts "lies between some papers."
+                puts "Looking over the document you realise"
+                puts "that its about the phone thefts."
+                puts "Under suspects, you see your name and Alac's name"
+                puts "You jump out the window you came from and rush to"
+                puts "where Alac is"
+                return 'alac'
+                
+                elsif action == "Cabinet"
+                puts "You look through the cabinets and can't"
+                puts "wait to uncover juicy secrets"
+                puts "Unfortunetly, all the cabinets were locked."
+                puts "How sad"
+                return 'lockedroom'
+                
+            else 
+                puts "A teacher might come in if you don't hurry up."
+                return 'lockedroom'
+            end
+        end
+    end
+    
+    class Alfanso < Scene
+        def enter()
+            puts "Alfanso sits there painting and notices"
+            puts "you once you get close enough."
+            puts "'Weren't you supposed to be suspended?'"
+            puts "You tell him about everything that happened to you"
+            puts "so far."
+            puts "'So.... what do you want from me.'"
+            puts "Interrogate him"
+            puts "or"
+            puts "Intimidate him"
+            print "> "
+            
+            action = $stdin.gets.chomp
+            
+            if action == "Interrogate him"
+                puts "You use your knowledge of crime shows as"
+                puts "best you can."
+                puts "'What do you know about the phone case?'"
+                puts "'The same as you. Look I have to finish'"
+                puts "'this art piece or I fail art.'"
+                puts "'Really? Then why was your phone in the"
+                puts "storage room'"
+                return 'alinterr'
+                
+                elsif action == "Intimidate him"
+                puts "You slam your hands on the desk"
+                puts "and shout 'WHERE ARE THE PHONES'"
+                puts "ALfanso gets up and leaves simply stating"
+                puts "you're annoying. I mean he's not wrong"
+                return 'gameover'
+                
+            else
+                puts "What to do...."
+                return 'alfanso'
+            end
+        end
+    end
+    
+    class Alinterr < Scene
+        def enter()
+            puts "Alright you got him on the ropes"
+            puts "Do you ask about"
+            puts "The person wearing a hood"
+            puts "or"
+            puts "The missing phones"
+            print "> "
+            
+            action = $stdin.gets.chomp
+            
+            if action == "The person wearing a hood"
+                puts "Alfanso looked at you with a blank expression."
+                puts "Just then, the headmaster and some teachers come in"
+                puts "This can't end well"
+                return 'gameover'
+                
+                elsif action == "The missing phones"
+                    puts "'All right...'"
+                    puts "Alfanso explains how he saw the janitor"
+                    puts "take a suspicious box to the headmaster's"
+                    puts "office. Just then the headmaster opens the"
+                    puts "Art room door. This can't end well"
+                    return 'headmaster'
+                    
+                else
+                    puts "can't give up now"
+                    return 'alinterr'
+            end
+        end
+    end
+
+class Headmaster < Scene
+    def enter()
+        puts "'You just couldn't keep your nose out"
+        puts "of my business. All you had to do was take the fall"
+        puts "You look for a way out, but there are none."
+        puts "It's time to bs your way out."
+        puts "Talk way out"
+        puts "Force way out"
+        print "> "
+        
+        action = $stdin.gets.chomp
+        
+        if action == "Talk way out"
+            puts "You try to tell jokes but it doesn't seem"
+            puts "to work. Now what"
+            return 'outsmart'
+            
+            elsif action == "Force way out"
+            puts "You try to charge through and open the door"
+            puts "It works about as well as you think it would work."
+            puts "You think to yourself why'd you even try that."
+            return 'gameover'
+            
+        else
+            puts "Stuck....."
+            return 'headmaster'
+        end
+    end
+end
+
+class Outsmart < Scene
+    def enter()
+        puts "The window is shut with a lock"
+        puts "The key is on a tabletop near the headmaster"
+        puts "He's blocking the door, and a fire alarm is on the left"
+        puts "Sitting on the desk, you see some matches, paper, and a pen"
+        puts "What do you do?"
+        puts "Light match"
+        puts "Throw pen"
+        puts "Lunge for key"
+        print "> "
+        
+        action = $stdin.gets.chomp
+        
+        if action == "Light match"
+            puts "You sneakily light the match"
+            return 'lit'
+            
+            elsif action == "Throw pen"
+            puts "The pen flies magically and hits the"
+            puts "headmaster in the eye"
+            puts "Distracted, he stumbles around."
+            puts "You take this opputrunity to take the key"
+            return 'police'
+            
+            elsif action == "Lunge for key"
+            puts "Brute force didn't work once"
+            puts "It doesn't work again"
+            return 'gameover'
+        else 
+            puts "Hurry it up"
+            return 'outsmart'
+        end
+    end
+end
+        
+   class Lit < Scene
+       def enter()
+           puts "Now what"
+           puts "Yell"
+           puts "Throw paper on fire"
+           print "> "
+           
+           action = $stdin.gets.chomp
+           
+           if action == "Yell"
+               puts "You yell out loud and it catches the headmaster's"
+               puts "attention. He panics and tells you to pull the alarm"
+               puts "You do, and while he's distracted, you rush through the door"
+               return 'goodend'
+               
+               elsif action == "Throw paper on fire"
+               puts "Nice move"
+               puts "You burned down the school"
+               puts "Yeah thats it"
+               puts "Great job"
+               return 'gameover'
+               
+           else 
+               puts "You're on a roll"
+               return 'lit'
+           end
+       end
+   end
+   
+   class Alac < Scene
+       def enter()
+           puts "Alright! You yell out. I know you took'em"
+           puts "Alac looks at you like he doesn't know what"
+           puts "you're talking about"
+           puts "Do you"
+           puts "Show him proof"
+           puts "BLuff"
+           print "> "
+           
+           action = $stdin.gets.chomp
+           
+           if action == "Show him proof"
+               puts "Hahah, you proudly declare as you show him"
+               puts "his own phone. You explain where you found it,"
+               puts "as his expression changes."
+               puts "Triumphant, you tell him to turn himself in."
+               puts "He instead runs away, and you look like an idiot."
+               return 'chase'
+               
+               elsif action == "BLuff"
+               puts "You try your best to bluff by saying"
+               puts "You know ALac's secret. He seems suprised at first,"
+               puts "but he realizes your bluffing. You don't know how, but"
+               puts "it might be beacuse you have a bad poker face."
+               return 'gameover'
+               
+           else 
+               puts "You got this"
+               return 'alac'
+           end
+       end
+   end
+                
+    class Chase < Scene
+        def enter()
+            puts "You chase him all the way to the gym"
+            puts "You reach the gym only to get hit by a ball."
+            puts "Alac prepares to throw another one"
+            puts "Rush him and dodge"
+            puts "Try to catch the ball."
+            puts "Throw the ball that hit you"
+            print "> "
+            
+            action = $stdin.gets.chomp
+            
+            if action == "Rush him"
+                puts "You rush him down and expect to dodge"
+                puts "the ball coming towards you"
+                puts "Unfortunatly you never live up to your expectations"
+                return 'gameover'
+                
+            elsif action == "Try to catch the ball"
+                puts "You prepare and manage to catch the second ball."
+                puts "You approach him to finish this."
+                return 'fight'
+                
+            elsif action == "Throw the ball"
+            puts "You throw the ball at Alac and hope it hits."
+            puts "Of course it misses, and while you're standing in"
+            puts "disbelief, you get hit in the noggin by a ball."
+            puts "gameover"
+            
+        else 
+            "Showtime..."
+            return 'chase'
+            end
+        end
+    end
+    
+    class Fight < Scene
+        def enter()
+            puts "As you get close he prepares to throw a punch"
+            puts "You respond by"
+            puts "Throwing a punch"
+            puts "Ducking"
+            puts "Blocking"
+            print "> "
+            
+            action = $stdin.gets.chomp
+            
+            if action == "Throwing a punch"
+                puts "You try to throw a punch to counter"
+                puts "Before you could, however, you found"
+                puts "yourself on the ground,not knowing how"
+                puts "you got there."
+                return 'gameover'
+                
+                elsif action == "Ducking"
+                puts "You duck and dodge the punch."
+                puts "Unfortunatly, you are met by a swift kick to the"
+                puts "face. A short lived victory..."
+                return 'gameover'
+                
+                elsif action == "Blocking"
+                puts "You block the punch and retailiate"
+                puts "With a punch to the nose."
+                puts "Alac topples over. That was easier than"
+                puts "you thought it would be."
+                return "goodend2"
+            else
+                puts "Make a choice"
+                return 'fight'
+            end
+        end
+    end
+    
+    class Police < Scene
+        def enter()
+            puts "You escape from the room, but get caught by some teachers."
+            puts "Seeing the headmaster blinded, they decide to call the police"
+            puts "Violence never solves anything. You learned this the hard way."
+        end
+    end
+    
+    class Goodend < Scene
+        def enter()
+            puts "Escaping from the room, you decide to inform everyone of the"
+            puts "headmaster's nefarious plan. While he has a date with the authorities,"
+            puts "you can't help but feel something's missing..."
+        end
+    end
+    
+    class Goodend2 < Scene
+        def enter()
+            puts "You aprehend the true culprit of the theft."
+            puts "The headmaster appologizes and congratulates you"
+            puts "on your success. Everything feels resolved.... right?"
+        end
+    end
+            
+    
+    
+            
+            
  
  
  
@@ -164,7 +616,21 @@ class Scene
       'detention' => Detention.new(),
          'escape' => Escape.new(),
          'gameover' => Gameover.new(),
-         'finished' => Finished.new()
+         'finished' => Finished.new(),
+         'doors' => Doors.new(),
+         'hallway1' => Hallway1.new(),
+         'lockedroom' => Lockedroom.new(),
+         'alfanso' => Alfanso.new(),
+         'alinterr' => Alinterr.new(),
+         'headmaster' => Headmaster.new(),
+         'outsmart' => Outsmart.new(),
+         'lit' => Lit.new(),
+         'alac' => Alac.new(),
+         'chase' => Chase.new(),
+         'fight' => Fight.new(),
+         'police' => Police.new(),
+         'goodend' => Goodend.new(),
+         'goodend2' => Goodend2.new()
    }
  
  
