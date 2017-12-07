@@ -15,7 +15,7 @@ class Detention
      
      action = $stdin.gets.chomp
      
-     if action == "Leave room"
+     if action == "Leave the room"
          puts "Your days of watching spy movies has prepared you"
          puts "for this moment!"
          puts "You sneakily open the door."
@@ -74,7 +74,7 @@ class Detention
              puts "After all, slow and steady wins the race."
              puts "Caught up in admiring yourself, you accidently close"
              puts "the door all the way."
-             puts "Locked from the outside, you desperrtly try to escape!"
+             puts "Locked from the outside, you desperately try to escape!"
              puts "All the noise you make alerts some teachers nearby."
              puts "Aren't you a genius?"
              return 'gameover'
@@ -94,3 +94,12 @@ class Detention
          end
    end
  end     
+ 
+ class Gameover 
+    def enter()
+        puts "You are caught and branded as a criminal."
+        puts "You are expelled from school and treated as an outcast."
+        puts "Bet you wish you could turn back time."
+    end
+end
+   
