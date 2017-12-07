@@ -110,7 +110,7 @@ class Lockedroom
             puts "gameover"
             
         else 
-            "Showtime..."
+            puts "Showtime..."
             return 'chase'
             end
         end
