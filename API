@@ -1,0 +1,16 @@
+require 'httparty'
+require 'json'
+require 'rubygems'
+require 'pp'
+
+# url = 'https://www.metaweather.com/api/location/2459115'
+# response = HTTParty.get(url)
+# puts response.parsed_response
+
+
+url = 'https://api.jikan.me/search/anime/Code/1'
+response = HTTParty.get(url)
+# puts response.parsed_response
+
+items = JSON.parse(response.body, {:symbolize_names => true})
+puts items
